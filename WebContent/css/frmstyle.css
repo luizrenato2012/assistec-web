@@ -1,0 +1,105 @@
+/* 
+  ##########################################################################################################
+
+	RamonPage - Grid Forms
+	CSS Style by Ramon Bispo (Page) 
+	Rio de Janeiro, Brazil | March/May, 2007 | Some Rights reserved
+	
+	Esteja livre para usar este recurso, porém cite o autor da obra
+	Documento sob licensa Creative Commons 2.5 Br
+
+  ########################################################################################################### 
+*/
+
+
+body {
+	/*text-align: center; */
+	font-family: arial,sans-serif;
+}
+
+form {
+	margin: 0;
+	padding: 0;
+}
+
+form#frmstylizer {
+	/*margin: auto; */
+	margin-bottom: 5px;
+	width: 750px;
+/*	background: #fff url(bg-grid.gif) repeat-y 10px 0; */
+	text-align: left;
+	border: 1px  #BEBEBE solid;;
+}
+
+fieldset {
+	margin: 0;
+	padding: 5px;
+	border: 0;
+	clear: left;
+}
+
+form br {
+	clear: left;
+}
+
+legend,
+label {
+	color: #696969;
+}
+
+fieldset fieldset {
+	padding: 0;
+}
+
+label { /* Possui IE fix */
+	display: block;
+	margin: 0 10px 0 0;
+	/* top right bottom left */
+	padding: 0 0 2px 0;
+/*	line-height: 1.2em; */
+	float: left;
+}
+
+
+label.full {
+	width: 720px;
+}
+
+label.x-large {
+	width: 536px;
+}
+
+label.large { /* Possui IE fix */
+	width: 355px;
+}
+
+
+label.small { /* Possui IE fix */
+	width: 172px;
+}
+
+label.x-small { /* Possui IE fix */
+	width: 81px;
+}
+
+.textfield,
+.select,
+.text {
+/*	border: 1px solid #f00; */
+/*	background-color: #fafafa; */
+/*	display: block;  */
+	width: 100%;
+}
+
+.button {
+	width: 100%;
+	color: #696969; 
+}
+
+.label_secao {
+	margin-left: 5px;
+	margin-top: 5px;
+	font-family: arial, sans-serif;
+	font-size: 16px;
+	font-style: weight;
+	}

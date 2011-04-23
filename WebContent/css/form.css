@@ -1,0 +1,140 @@
+
+.box {
+	border: 1px solid #BEBEBE;
+	width: 400px;
+}
+
+.box_botao {
+	border: 1px solid #ccc;
+	width: 400px;
+	background: #fff url(../img/shadow.jpg) bottom repeat-x;
+	margin-top: 5px;
+}
+
+
+.texto {
+	float: right;
+	margin-right: 20px;
+	width: 250px;
+}
+
+.lista {
+	float: right;
+	margin-right: 20px;
+	width: 253px;
+}
+
+.texto_data {
+	float: right;
+	margin-right: 20px;
+	width: 250px;
+}
+
+.rotulo {
+	font-size: 14px;
+	margin-left: 20px;
+	font-family: sans-serif;
+}
+
+.box_titulo {
+	border: 1px solid #BEBEBE;
+	width: 400px;
+	margin-bottom: 5px;
+}
+
+.box_erro {
+	border: 1px solid #FF0000;
+	width: 400px;
+	margin-bottom: 5px;
+}
+
+.box_aviso {
+	border: 1px solid #0000FF;
+	width: 400px;
+	margin-bottom: 2px;
+	margin-top: 2px;
+}
+
+
+.erro_rotulo {
+	color: #FF0000;
+	margin-left: 5px;
+}
+
+.aviso_rotulo {
+	color: #0000FF;
+	margin-left: 5px;
+}
+
+.titulo_rotulo {
+	margin-left: 5px;
+}
+
+.titulo.header {
+		font-size: 16px;
+}
+
+.botao_cria {
+	margin-left: 20px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	width: 80px;
+	padding: 5px 5px 5px 5px;
+	background: url(../img/save.png) center left no-repeat;
+}
+
+.botao_pesquisa {
+	margin-right: 20px;
+	margin-top: 5px;
+	width: 100px;
+	padding: 5px 5px 5px 5px;
+	background: url(../img/find.png) center left no-repeat;
+}
+
+.link_pesquisa {
+	float: right;
+	width: 80px;
+	margin-top: 5px;
+	padding: 5px 5px 5px 5px;
+}
+
+table, td, th {
+border:1px solid gray;
+}
+
+.box_titulo_2 {
+	border: 1px solid #BEBEBE;
+	width: 750px;
+	margin-bottom: 5px;
+}
+
+.box_botao_2 {
+	border: 1px solid #ccc;
+	width: 743px;
+	background: #fff url(../img/shadow.jpg) bottom repeat-x;
+	margin-top: 5px;
+}
+
+a:link {
+	text-decoration: none;
+}
+
+img {
+	border: none;
+}
+	
+/* table {
+	margin-top: 5px;
+	width: 500px;
+} */
+
+/*
+td {
+	text-align: center;
+	paddind: 2px 2px 2px 2px;
+} */
+
+/*
+th {
+	background-color: Green;
+} */

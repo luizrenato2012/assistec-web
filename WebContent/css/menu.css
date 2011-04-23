@@ -1,0 +1,86 @@
+body{
+	font-family: Arial,sans-serif;
+}
+
+.titulo_rotulo {
+	margin-left: 10px;
+	margin-top: 5px;
+	margin-bottom:5px;
+	link: blue;
+	text-decoration: none
+}
+
+.box_menu {
+	border: 2px solid #BEBEBE ;
+	width: 130px;
+	height: 350px;
+	margin-bottom: 5px;
+}
+
+.titulo_header {
+		font-weight: bold;
+		font-size: 28px;
+		position: relative;
+		left: 50px;
+		bottom: 40px;
+}
+
+/*
+.linha_header {
+	margin-left: 10px;
+	float:center;
+} */
+
+.coluna_menu {
+	position: relative;
+	float: left;
+	margin-left: 10px;
+	width:132px;
+	background: #fff url(../img/shadow.jpg) bottom repeat-x;
+}
+
+.coluna_body {
+	position: relative;
+	float: left;
+	margin-left: 50px;
+	/* background: #fff url(../img/shadow.jpg) bottom repeat-xy; */
+}
+
+
+.linha_header_2 {
+	/* margin-left: 10px; */
+	width: 100%;
+	/* float:center; */
+}
+
+.titulo_header_2 {
+	font-weight: bold;
+	font-size: 28px;
+	left: 150px;
+	bottom: 40px;
+}
+
+.coluna_menu_2 {
+/*	float: left; */
+	margin-left: 10px;
+	width:132px;
+	background: #fff url(../img/shadow.jpg) bottom repeat-x;
+}
+
+.coluna_body_2 {
+	/*float: right ; */
+/*	margin-left: right; */
+	/* margin-top: 30px; */
+	position: relative;
+	float: left;
+	margin-left: 50px;
+/*	background: #fff url(../img/shadow.jpg) bottom repeat-xy; */
+}
+
+.logo {
+	background: #fff url(../img/header.jpg) no-repeat ;
+	height: 130px;
+	margin-left: 10px;
+	margin-top: 10px;
+	margin-bottom: 5px;
+}

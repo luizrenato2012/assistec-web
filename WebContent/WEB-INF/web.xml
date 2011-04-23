@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>assistec-web</display-name>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>ControllerServlet</display-name>
+    <servlet-name>ControllerServlet</servlet-name>
+    <servlet-class>assistec.controller.servlet.ControllerServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControllerServlet</servlet-name>
+    <url-pattern>/executa</url-pattern>
+  </servlet-mapping>
+  <error-page>
+    <exception-type>javax.servlet.ServletException</exception-type>
+    <location>/error_page.jsp</location>
+  </error-page>
+  <error-page>
+    <exception-type>org.hibernate.exception.JDBCConnectionException</exception-type>
+    <location>/error_page.jsp</location>
+  </error-page>
+  <error-page>
+    <error-code>500</error-code>
+    <location>/error_page.jsp</location>
+  </error-page>
+  <servlet>
+    <description></description>
+    <display-name>TesteServlet</display-name>
+    <servlet-name>TesteServlet</servlet-name>
+    <servlet-class>assistec.controller.servlet.TesteServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TesteServlet</servlet-name>
+    <url-pattern>/TesteServlet</url-pattern>
+  </servlet-mapping>
+  <!--  Servlet DWR -->
+    <servlet>
+    	<servlet-name>dwr-invoker</servlet-name>
+    	<!-- <servlet-class>uk.ltd.getahead.dwr.DWRServlet</servlet-class> -->
+    	<servlet-class>org.directwebremoting.servlet.DwrServlet</servlet-class>
+    	<init-param>
+  		  		<param-name>debug</param-name>
+  		  		<param-value>true</param-value>
+  		  </init-param>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>dwr-invoker</servlet-name>
+    <url-pattern>/dwr/*</url-pattern>
+  </servlet-mapping>
+</web-app>
