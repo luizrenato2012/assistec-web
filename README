@@ -1,2 +1,3 @@
 Este é um primeiro prototipo em desenvolvimento para um sistema de controle de assistência técnica .
 Utiliza servlet,JSP,JSTL (a principio sem nenhum framework MVC) e framework's JQuery para javascript e DWR p/ ajax.
+O objetivo é testar e aprender a utilizar as ferramentas citadas e deixar o sistema minimamente funcional p/ efetuar evoluções como p. ex usar framework's MVC.
