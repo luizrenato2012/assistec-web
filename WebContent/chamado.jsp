@@ -26,10 +26,16 @@
    		<label class="small">Cidade  <label class="textfield" id="cidade"/></label></label> 
    		<label class="small">UF   
 		<select class="select">
-	  		<option value="RJ">RJ</option>
-	  		<option value="SP">SP</option>
-	  		<option value="MG">MG</option>
-	  		<option value="ES">ES</option>	  
+	  		<option value="RJ">AC</option>
+	  		<option value="SP">AM</option>
+	  		<option value="MG">BA</option>
+	  		<option value="ES">CE</option>	  
+	  		<option value="ES">DF</option>
+	  		<option value="ES">MG</option>
+	  		<option value="ES">PA</option>
+	  		<option value="ES">SP</option>
+	  		<option value="ES">RJ</option>
+	  		<option value="ES">TO</option>
 	 	</select></label> <br/>
 	</fieldset>
   <label class="label_secao">Equipamento</label> 
