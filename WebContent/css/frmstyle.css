@@ -24,6 +24,8 @@ form {
 
 form#frmstylizer {
 	/*margin: auto; */
+	font-size: 14px;
+	font-color: black;
 	margin-bottom: 5px;
 	width: 750px;
 /*	background: #fff url(bg-grid.gif) repeat-y 10px 0; */
@@ -42,10 +44,10 @@ form br {
 	clear: left;
 }
 
-legend,
+/*legend,
 label {
 	color: #696969;
-}
+} */
 
 fieldset fieldset {
 	padding: 0;
@@ -82,10 +84,17 @@ label.x-small { /* Possui IE fix */
 	width: 81px;
 }
 
-.textfield,
+.textfield {
+	height: 18px;
+	border: 1px groove black;
+	vertical-align:center;
+	width: 100%;
+}
+
 .select,
 .text {
-/*	border: 1px solid #f00; */
+/*	border: 1px groove black; */
+	
 /*	background-color: #fafafa; */
 /*	display: block;  */
 	width: 100%;
@@ -99,7 +108,15 @@ label.x-small { /* Possui IE fix */
 .label_secao {
 	margin-left: 5px;
 	margin-top: 5px;
-	font-family: arial, sans-serif;
+	margin: 5px;
 	font-size: 16px;
-	font-style: weight;
+	font-color: black;
+	font-weight: bold;
 	}
+
+.separator {
+	border: 1px #BEBEBE solid;
+	margin: 2px;
+	margin-right: 25px;
+	margin-top: 10px;
+}

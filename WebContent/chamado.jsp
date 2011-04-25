@@ -6,20 +6,25 @@
 <%@ taglib tagdir="/WEB-INF/tags"  prefix="assistec"%>
 <tg:aviso/>
 <form id="frmstylizer" action="#" method="post">
-	<label class="label_secao">Chamado</label>  
+	<!-- <label class="label_secao">Chamado</label>   -->
   	<fieldset>
-   		<label class="small">Data/Hora &#42; <input type="text" class="textfield" /></label>
-   		<label class="small">Solicitante &#42; <input type="text" class="textfield" /></label>
-   		<label class="large">Defeito Reclamado &#42; <input type="text" class="textfield" /></label>
- 	<fieldset>
+   		<label class="small">Data/Hora &#42; <input type="text" id="dataHora" class="text" /></label>
+   		<label class="small">Solicitante &#42; <input type="text" class="text" /></label>
+   		<label class="large">Defeito Reclamado &#42; <input type="text" class="text" /></label>
+ 	</fieldset>
    <label class="label_secao">Cliente</label> 
 		<fieldset>
-   		<label class="large">Nome &#42; <input type="text" class="textfield" id="nome"/></label> 
+   	<!-- <label class="large">Nome &#42; <input type="text" class="textfield" id="nome"/></label> 
    		<label class="small">Telefone &#42; <input type="text" class="textfield" id="telefone"/></label>
    		<label class="small">Pesquisar <input type="button" class="textfield" id="btnPesquisaCliente" value="..."/></label><br/>
 		<label class="large">Endereço &#42; <input type="text" class="textfield" id="endereco"/></label>
-   		<label class="small">Cidade &#42; <input type="text" class="textfield" id="cidade"/></label>
-   		<label class="small">UF &#42;  
+   		<label class="small">Cidade &#42; <input type="text" class="textfield" id="cidade"/></label> -->
+   		 <label class="large">Nome &#42; <label class="textfield" id="nome"></label></label> 
+   		<label class="small">Telefone <label  class="textfield" id="telefone"/></label></label>
+   		<label class="small">Pesquisar <input type="button" class="button" id="btnPesquisaCliente" value="..."/></label><br/>
+		<label class="large">Endereço  <label class="textfield" id="endereco"/></label></label>
+   		<label class="small">Cidade  <label class="textfield" id="cidade"/></label></label> 
+   		<label class="small">UF   
 		<select class="select">
 	  		<option value="RJ">RJ</option>
 	  		<option value="SP">SP</option>
