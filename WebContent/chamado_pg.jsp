@@ -51,7 +51,7 @@
             $('#btnSelecionaEquipamento').click(function(e){
                 var id = dwr.util.getValue('id_equipamento');
                 if( id!=null) {
-                    findEquipamento(id );
+                    findEquipamentoId(id );
                     $('#dialog_equipamento').dialog('close');
                 }
             });

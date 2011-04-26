@@ -43,12 +43,12 @@ public class ChamadoFacadeAjax {
 	/** lista equipamento por numero de serie */
 	public Equipamento findEquipamentoById (String strId) {
 		System.out.println("findEquipamentoById");
-		Integer id = Integer.parseInt(strId);
+		Long id = Long.parseLong(strId);
 		List<Equipamento> lista = new GenericHibernateDAO<Equipamento>(Equipamento.class)
-			.list("from Equipamento eq join join fetch eq.marca ma "+
+			.list("from Equipamento eq join fetch eq.marca ma "+
 					" join fetch eq.modelo mo "+
 					" join fetch eq.cliente cl "+
-					" where id=:id", "id", id);
+					" where eq.id=:id", "id", id);
 		return lista!=null || lista.size()>0 ? lista.get(0) : null;
 	}
 	

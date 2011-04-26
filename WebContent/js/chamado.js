@@ -58,8 +58,9 @@ function findEquipamentoId(id) {
 
 function fillEquipamento(equipamento) {
 	dwr.util.setValue("descricao",equipamento.descricao);
-	/*dwr.util.setValue("marca",equipamento.marca.nome);
+	dwr.util.setValue("marca",equipamento.marca.nome);
 	dwr.util.setValue("modelo",equipamento.modelo.descricao);
 	dwr.util.setValue("numeroSerie",equipamento.numeroSerie);
-	dwr.util.setValue("observacao",equipamento.observacao); */
+	dwr.util.setValue("patrimonio",equipamento.patrimonio);
+	dwr.util.setValue("observacao",equipamento.observacao); 
 }
