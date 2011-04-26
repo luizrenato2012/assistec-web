@@ -5,6 +5,7 @@ import java.util.List;
 import assistec.model.bean.Cliente;
 import assistec.model.bean.Equipamento;
 import assistec.model.dao.GenericHibernateDAO;
+import assistec.util.ParametroPesquisaEquipamento;
 
 public class ChamadoFacadeAjax {
 	
@@ -29,6 +30,26 @@ public class ChamadoFacadeAjax {
 	public List<Equipamento> findEquipamentoByModelo (String descricaoModelo ) {
 		return new GenericHibernateDAO(Equipamento.class).list(" From Equipamento where modelo.descricao=:descricao",
 				"descricao",descricaoModelo);		
+	}
+	
+	/** pesquisa equipamento de acordo com argumento recebido */
+	public List<Equipamento> findEquipamento (String tipoArgumento , String valor ) {
+		String query = ParametroPesquisaEquipamento.getQuery(tipoArgumento);
+		System.out.println("query " + query );
+		return new GenericHibernateDAO<Equipamento>(Equipamento.class).list(query, 
+				tipoArgumento, valor+"%");
+	}
+	
+	/** lista equipamento por numero de serie */
+	public Equipamento findEquipamentoById (String strId) {
+		System.out.println("findEquipamentoById");
+		Integer id = Integer.parseInt(strId);
+		List<Equipamento> lista = new GenericHibernateDAO<Equipamento>(Equipamento.class)
+			.list("from Equipamento eq join join fetch eq.marca ma "+
+					" join fetch eq.modelo mo "+
+					" join fetch eq.cliente cl "+
+					" where id=:id", "id", id);
+		return lista!=null || lista.size()>0 ? lista.get(0) : null;
 	}
 	
 	public static void main(String[] args) {

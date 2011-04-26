@@ -33,9 +33,33 @@ function fillCliente(cliente) {
 
 /** pesquisa equipamento por numero de serie*/
 function findEquipamento() {
+	var tipo = dwr.util.getValue('cbx_equipamento');
+	var valor = dwr.util.getValue('argPesquisaEquipamento');
+	ChamadoFacadeAjax.findEquipamento(tipo,valor,fillTblEquipamento);
 	
 }
 /** preenche fields de equipamento */
-function fillEquipamentoTable (equipamento) {
-	
+function fillTblEquipamento (list) {
+	cellFuncs = [
+		            function(data) { return "<input type=\'radio\' name=\'radio\' onclick=\'selectEquipamento("+ data.id + ")\'/>"+data.id ;} , 
+		            function(data) { return data.descricao ;} ,
+		            function(data) { return data.marca.nome   ;} , 
+		            function(data) { return data.modelo.descricao ;},
+		            function(data) { return data.numeroSerie ;},
+		            function(data) { return data.patrimonio;},
+		            function(data) { return data.cliente.nome;},
+		            ];	
+		dwr.util.removeAllRows("tbodyEquipamento");
+		dwr.util.addRows("tbl_equipamento" , list, cellFuncs , {escapeHtml:false});
+}
+function findEquipamentoId(id) {
+	ChamadoFacadeAjax.findEquipamentoById(id, fillEquipamento);
+}
+
+function fillEquipamento(equipamento) {
+	dwr.util.setValue("descricao",equipamento.descricao);
+	/*dwr.util.setValue("marca",equipamento.marca.nome);
+	dwr.util.setValue("modelo",equipamento.modelo.descricao);
+	dwr.util.setValue("numeroSerie",equipamento.numeroSerie);
+	dwr.util.setValue("observacao",equipamento.observacao); */
 }

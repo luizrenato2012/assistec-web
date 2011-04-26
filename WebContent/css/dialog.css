@@ -2,13 +2,18 @@ body {
 	font-family: arial,sans-serif;
 }
 
-#dialog {
+.dialog {
 	display:none;	
+	font-size: 14px;
 }
 
-#tblCliente {
+#tblCliente,#tbl_equipamento {
 	width: 90%;
 		border-collapse:collapse;
+}
+
+#tbl_equipamento {
+	width: 100%;
 }
 
 th,td {

@@ -14,12 +14,7 @@
  	</fieldset>
    <label class="label_secao">Cliente</label> 
 		<fieldset>
-   	<!-- <label class="large">Nome &#42; <input type="text" class="textfield" id="nome"/></label> 
-   		<label class="small">Telefone &#42; <input type="text" class="textfield" id="telefone"/></label>
-   		<label class="small">Pesquisar <input type="button" class="textfield" id="btnPesquisaCliente" value="..."/></label><br/>
-		<label class="large">Endereço &#42; <input type="text" class="textfield" id="endereco"/></label>
-   		<label class="small">Cidade &#42; <input type="text" class="textfield" id="cidade"/></label> -->
-   		 <label class="large">Nome &#42; <label class="textfield" id="nome"></label></label> 
+  		 <label class="large">Nome &#42; <label class="textfield" id="nome"></label></label> 
    		<label class="small">Telefone <label  class="textfield" id="telefone"/></label></label>
    		<label class="small">Pesquisar <input type="button" class="button" id="btnPesquisaCliente" value="..."/></label><br/>
 		<label class="large">Endereço  <label class="textfield" id="endereco"/></label></label>
@@ -40,14 +35,16 @@
 	</fieldset>
   <label class="label_secao">Equipamento</label> 
 	<fieldset>
-   		<label class="large">Decricao &#42; <input type="text" class="textfield" /></label>
-   		<label class="small">Marca <input type="text" class="textfield" /></label>
-   		<label class="small">Modelo <input type="text" class="textfield" /></label> <br/>
+   		<label class="x-large">Decricao &#42; <input type="text" id="descricao" class="textfield" /></label> 
+   		<label class="small">Pesquisar <input type="button" class="button" id="btnPesquisaEquipamento" value="..."/> </label><br/>
+   		
+   		<label class="large">Marca <input type="text" id="marca" class="textfield" /></label>
+   		<label class="large">Modelo <input type="text" id="modelo"  class="textfield" /></label> <br/>
 
-   		<label class="large">Núm. Série <input type="text" class="textfield" /></label>
-   		<label class="large">Patrimonio <input type="text" class="textfield" /></label><br/>
+   		<label class="large">Núm. Série <input type="text" id="numeroSerie" class="textfield" /></label>
+   		<label class="large">Patrimonio <input type="text" id="patrimonio" class="textfield" /></label><br/>
     
-   		<label class="full">Observação <input type="text" class="textfield" /></label>
+   		<label class="full">Observação <input type="text" id="observacao" class="textfield" /></label>
    		</fieldset>
   		<div class="box_botao_2">
 			<input class="botao_cria" type="submit"  value="Cria"/>
@@ -59,10 +56,13 @@
  	function selectCliente(id) {
  	 	 $("#idCliente").val(id);
  	}
+ 	function selectEquipamento(id) {
+ 	 	$('#id_equipamento').val(id);
+ 	}
  </script>
  
     <input type="hidden" id="idCliente"/>
-    <div id="dialog" title="Pesquisa de Clientes" >
+    <div id="dialog_cliente" class="dialog" title="Pesquisa de Clientes" >
       	<br>
      	<label for="nome">Digite um nome</label><input type="text" id="argNome"/> 
      	<input type="button" id="btnProcuraCliente" value="Procura"/> <br><br>
@@ -77,4 +77,31 @@
      	<!-- evento definido em chamado_pg.jsp -->
      	<input type="button" value="Seleciona" id="btnSelecionaCliente"/>
      </div>
- <!--  -------------Pesquisa de cliente      -->
+
+<!-- Pesquisa de Equipamento -->
+    <input type="hidden" id="id_equipamento"/>
+    <div id="dialog_equipamento" class="dialog" title="Pesquisa de Equipamentos por" >
+      	<br>
+     	<select class="label" id="cbx_equipamento">
+     		<option value="descricao">Descrição</option>
+     		<option value="marca">Marca</option>
+     		<option value="modelo">Modelo</option>
+     		<option value="numeroSerie">N. Série</option>
+     		<option value="patrimonio">Patrimônio</option>
+     		<option value="cliente">Cliente</option>
+     	</select>
+     	
+     	<input type="text" id="argPesquisaEquipamento"/>
+     	
+     	<input type="button" id="btnProcuraEquipamento" value="Procura"/> <br><br>
+     	<table id="tbl_equipamento">
+     		<tr>
+     		<th></th> <th> Descrição </th>  <th> Marca</th> <th> Modelo</th> <th>N. Série</th> <th>Patrimonio</th> <th>Cliente</th>
+     		</tr>
+     		<tr>
+     			<tbody id="tbodyEquipamento"/>
+     		</tr>
+     	</table><br><br>
+     	
+     	<input type="button" value="Seleciona" id="btnSelecionaEquipamento"/>
+     </div>

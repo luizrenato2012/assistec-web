@@ -23,7 +23,7 @@
 
         $('document').ready(function () { 
         	$("#btnPesquisaCliente").click(function (e)  {
-                $("#dialog").dialog({modal:true,width:530});
+                $("#dialog_cliente").dialog({modal:true,width:530});
                 e.preventDefault(); 
             });
 
@@ -35,7 +35,24 @@
                 var id = dwr.util.getValue('idCliente');
                 if (id!= null) {
                 	findClienteId($('#idCliente').val() ); 	
-         	 		$('#dialog').dialog('close');
+         	 		$('#dialog_cliente').dialog('close');
+                }
+            });
+
+            $('#btnPesquisaEquipamento').click(function(e) {
+            	$("#dialog_equipamento").dialog({modal:true,width:590});
+                e.preventDefault(); 
+             });
+
+            $('#btnProcuraEquipamento').click(function(e){
+                findEquipamento();
+             });
+
+            $('#btnSelecionaEquipamento').click(function(e){
+                var id = dwr.util.getValue('id_equipamento');
+                if( id!=null) {
+                    findEquipamento(id );
+                    $('#dialog_equipamento').dialog('close');
                 }
             });
         });
