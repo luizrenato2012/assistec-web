@@ -23,5 +23,6 @@
     	<mapping class="assistec.model.bean.Marca"/>
     	<mapping class="assistec.model.bean.Modelo"/>
     	<mapping class="assistec.model.bean.Equipamento"/>
+    	<mapping class="assistec.model.bean.Chamado"/>
     </session-factory>
 </hibernate-configuration>

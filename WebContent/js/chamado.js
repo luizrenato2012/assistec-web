@@ -62,5 +62,4 @@ function fillEquipamento(equipamento) {
 	dwr.util.setValue("modelo",equipamento.modelo.descricao);
 	dwr.util.setValue("numeroSerie",equipamento.numeroSerie);
 	dwr.util.setValue("patrimonio",equipamento.patrimonio);
-	dwr.util.setValue("observacao",equipamento.observacao); 
 }

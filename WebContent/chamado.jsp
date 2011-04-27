@@ -11,6 +11,7 @@
    		<label class="small">Data/Hora &#42; <input type="text" id="dataHora" class="text" /></label>
    		<label class="small">Solicitante &#42; <input type="text" class="text" /></label>
    		<label class="large">Defeito Reclamado &#42; <input type="text" class="text" /></label>
+   		<label class="full">Observacao <input type="text" class="text"/></label>
  	</fieldset>
    <label class="label_secao">Cliente</label> 
 		<fieldset>
@@ -35,16 +36,15 @@
 	</fieldset>
   <label class="label_secao">Equipamento</label> 
 	<fieldset>
-   		<label class="x-large">Decricao &#42; <input type="text" id="descricao" class="textfield" /></label> 
+   		<label class="x-large">Decricao &#42; <label id="descricao" class="textfield" /></label></label> 
    		<label class="small">Pesquisar <input type="button" class="button" id="btnPesquisaEquipamento" value="..."/> </label><br/>
    		
-   		<label class="large">Marca <input type="text" id="marca" class="textfield" /></label>
-   		<label class="large">Modelo <input type="text" id="modelo"  class="textfield" /></label> <br/>
+   		<label class="large">Marca <label id="marca" class="textfield" /></label></label>
+   		<label class="large">Modelo <label id="modelo"  class="textfield" /></label></label> <br/>
 
-   		<label class="large">Núm. Série <input type="text" id="numeroSerie" class="textfield" /></label>
-   		<label class="large">Patrimonio <input type="text" id="patrimonio" class="textfield" /></label><br/>
+   		<label class="large">Núm. Série <label id="numeroSerie" class="textfield" /></label></label>
+   		<label class="large">Patrimonio <label id="patrimonio" class="textfield" /></label></label><br/>
     
-   		<label class="full">Observação <input type="text" id="observacao" class="textfield" /></label>
    		</fieldset>
   		<div class="box_botao_2">
 			<input class="botao_cria" type="submit"  value="Cria"/>

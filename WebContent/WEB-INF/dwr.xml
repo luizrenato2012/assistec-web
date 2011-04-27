@@ -5,10 +5,10 @@
 <dwr>
 	<allow>
 		<create creator="new" javascript="MarcaFacadeAjax">
-			<param name="class" value="assistec.controller.facade.MarcaFacadeAjax"/>
+			<param name="class" value="assistec.controller.javascript.MarcaFacadeAjax"/>
 		</create>
 		<create creator="new" javascript="ChamadoFacadeAjax">
-			<param name="class" value="assistec.controller.facade.ChamadoFacadeAjax"/>
+			<param name="class" value="assistec.controller.javascript.ChamadoFacadeAjax"/>
 		</create>
 		<convert converter="bean" match="assistec.model.bean.*"/>
 	</allow>

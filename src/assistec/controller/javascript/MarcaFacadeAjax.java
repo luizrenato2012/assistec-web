@@ -1,4 +1,4 @@
-package assistec.controller.facade;
+package assistec.controller.javascript;
 
 import java.util.List;
 
