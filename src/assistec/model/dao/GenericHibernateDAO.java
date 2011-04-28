@@ -11,19 +11,17 @@ import org.hibernate.criterion.Restrictions;
 import assistec.model.bean.Marca;
 
 public class GenericHibernateDAO<T> implements DAO<T> {
-	private Class classe ; 
 	private Session session;
 	
 	
-	public GenericHibernateDAO(Class classe,Session session) {
+	public GenericHibernateDAO(Session session) {
 		super();
-		this.classe = classe;
 		this.session = session;
 	}
 
 	@Override
 	public Long insert(T t) {
-		session.beginTransaction();
+//		session.beginTransaction();
 		Long result = null;
 		try {
 			result = (Long) session.save(t);
@@ -51,7 +49,7 @@ public class GenericHibernateDAO<T> implements DAO<T> {
 	}
 
 	@Override
-	public void remove(Long id) {
+	public void remove(Long id, Class classe) {
 		////Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 //		session.beginTransaction();
 		try {
@@ -65,7 +63,7 @@ public class GenericHibernateDAO<T> implements DAO<T> {
 	}
 
 	@Override
-	public T search(Serializable s ) {
+	public T search(Serializable s,Class classe ) {
 		////Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 //		session.beginTransaction();
 		try {
@@ -77,7 +75,7 @@ public class GenericHibernateDAO<T> implements DAO<T> {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<T> list(Serializable value , String propertyName) {
+	public List<T> list(Serializable value , String propertyName,Class classe) {
 		////Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 //		session.beginTransaction();
 		try {
@@ -90,7 +88,7 @@ public class GenericHibernateDAO<T> implements DAO<T> {
 	}
 
 	@Override
-	public List<T> listLike(Serializable value, String propertyName) {
+	public List<T> listLike(Serializable value, String propertyName,Class classe) {
 		//Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 //		session.beginTransaction();
 		try {
@@ -103,7 +101,7 @@ public class GenericHibernateDAO<T> implements DAO<T> {
 	}
 
 	@Override
-	public List<T> listAll() {
+	public List<T> listAll(Class classe) {
 		//Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 //		session.beginTransaction();
 		try {
@@ -131,13 +129,5 @@ public class GenericHibernateDAO<T> implements DAO<T> {
 	}
 
 	public static void main(String[] args) {
-//		List  list = new GenericHibernateDAO<Marca>(Marca.class).listLike("M", "nome");
-//		if ( list==null) {
-//			System.out.println("Sem marcas");
-//		} else {
-//			for ( Object obj :list) {
-//				System.out.println(  obj  );
-//			}
-//		}
 	}
 }

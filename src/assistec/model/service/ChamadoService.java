@@ -46,13 +46,11 @@ public class ChamadoService {
 			
 			session = HibernateUtil.getSessionFactory().getCurrentSession();
 			session.beginTransaction();
-			GenericHibernateDAO<Equipamento> equipamentoDao = new GenericHibernateDAO<Equipamento>
-			(Equipamento.class,session);
-			chamado.setEquipamento(equipamentoDao.search(idEquipamento));
+			GenericHibernateDAO<Equipamento> equipamentoDao = new GenericHibernateDAO<Equipamento>(session);
+			chamado.setEquipamento(equipamentoDao.search(idEquipamento,Equipamento.class));
 			
-			GenericHibernateDAO<Cliente> clienteDao = new GenericHibernateDAO<Cliente>
-			(Cliente.class,session);
-			chamado.setCliente(clienteDao.search(idCliente));
+			GenericHibernateDAO<Cliente> clienteDao = new GenericHibernateDAO<Cliente>(session);
+			chamado.setCliente(clienteDao.search(idCliente,Cliente.class));
 			chamado.setSituacao(true);
 			session.save(chamado);
 			session.getTransaction().commit();
