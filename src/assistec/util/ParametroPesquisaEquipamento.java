@@ -14,11 +14,13 @@ public class ParametroPesquisaEquipamento {
 	
 	static {
 		mapParamQuery = new HashMap<String,String>();
+		mapParamQuery.put("id", "From Equipamento where id=:id");
 		mapParamQuery.put("descricao", "From Equipamento where descricao like :descricao ");
 		mapParamQuery.put("marca","From Equipamento where marca.nome like :marca");
 		mapParamQuery.put("modelo", "From Equipamento where modelo.descricao like :modelo");
 		mapParamQuery.put("numeroSerie", "From Equipamento where numeroSerie like :numeroSerie");
 		mapParamQuery.put("patrimonio", "From Equipamento where patrimonio like :patrimonio");
+		
 	}
 	
 	public static String getQuery(String tipo ) {

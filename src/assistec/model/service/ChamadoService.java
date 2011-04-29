@@ -25,7 +25,7 @@ public class ChamadoService {
 	 * @param idCliente
 	 * @throws ServiceException
 	 */
-	public void abreChamado(String dataHora,String solicitante,String defeito,String observacao,
+	public Long abreChamado(String dataHora,String solicitante,String defeito,String observacao,
 			String strIdEquipamento,String strIdCliente) throws ServiceException {
 		if ( UtilAssistec.isVazia(strIdCliente)) {
 			throw new ServiceException ("Sem cliente informado");
@@ -54,13 +54,14 @@ public class ChamadoService {
 			chamado.setSituacao(true);
 			session.save(chamado);
 			session.getTransaction().commit();
+			return chamado.getId();
 		} catch (ParseException e) {
 			throw new ServiceException("Erro ao informar data" , e);
 		} catch (Exception e ) {
 			if(session != null) {
 				session.getTransaction().rollback();
 			}
-			throw new ServiceException("Erro ao gravar chamado",e);
+			throw new ServiceException("Erro ao abrir chamado",e);
 			}
 		}
 		

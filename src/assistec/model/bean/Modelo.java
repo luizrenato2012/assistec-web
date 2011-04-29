@@ -7,7 +7,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
+/**
+ * Representa modelo de equipamentos
+ * @author Luiz Renato
+ *
+ */
 @Entity
 @Table( name="assistec.modelo")
 public class Modelo {

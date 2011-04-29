@@ -16,7 +16,7 @@ public class EditaEquipamento implements ServiceITF {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		GenericHibernateDAO<Equipamento> dao = new GenericHibernateDAO<Equipamento>(Equipamento.class);
+		GenericHibernateDAO<Equipamento> dao = new GenericHibernateDAO<Equipamento>();
 		if ( UtilAssistec.isVazia(request.getParameter("id"))) {
 			request.setAttribute("msgErro", "id selecionado inválido");
 			request.getRequestDispatcher("pesquisa/equipamento_pg.jsp").forward(request, response);

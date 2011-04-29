@@ -8,25 +8,31 @@ import javax.servlet.http.HttpServletResponse;
 import assistec.model.bean.Marca;
 import assistec.model.bean.Modelo;
 import assistec.model.dao.GenericHibernateDAO;
+import assistec.model.service.MarcaService;
+import assistec.model.service.ModeloService;
 import assistec.util.UtilAssistec;
 
+/**
+ * Realiza alteracçoes num modelo
+ * @author renato
+ *
+ */
 public class EditaModelo  implements ServiceITF {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
-		GenericHibernateDAO<Modelo> dao = new GenericHibernateDAO<Modelo>(Modelo.class);
-		if ( UtilAssistec.isVazia(request.getParameter("id"))) {
+//		GenericHibernateDAO<Modelo> dao = new GenericHibernateDAO<Modelo>(Modelo.class);
+		String paramId = request.getParameter("id");
+		if ( UtilAssistec.isVazia(paramId)) {
 			request.setAttribute("msgErro", "id selecionado inválido");
 			request.getRequestDispatcher("pesquisa/modelo_pg.jsp").forward(request, response);
 		} else {
-			Long id = Long.parseLong( request.getParameter("id") );
-			Modelo modelo = dao.search(id);
+			Modelo modelo = new ModeloService().seleciona(paramId);
 			if ( modelo==null) {
-				throw new RuntimeException("Modelo com id " + id+ " não encontrado");
+				throw new RuntimeException("Modelo com id " + paramId+ " não encontrado");
 			}
-			GenericHibernateDAO<Marca> marcaDao = new GenericHibernateDAO<Marca>(Marca.class);
-			List<Marca> marcas = marcaDao.listAll();
+			List<Marca> marcas = new MarcaService().listaTodas();
 			request.setAttribute("modelo", modelo);
 			request.setAttribute("marcas", marcas);
 			request.getRequestDispatcher( "modelo_pg.jsp").forward(request, response);
