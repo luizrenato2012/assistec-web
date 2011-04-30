@@ -5,13 +5,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
 @Entity
-@SequenceGenerator(name="SEQ_TECNICO",sequenceName="assistec.id_seq_tecnico")
+@Table(name="assistec.tecnico")
 public class Tecnico {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="SEQ_TECNICO")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
 	private String nome;

@@ -8,29 +8,27 @@ import javax.servlet.http.HttpServletResponse;
 import assistec.model.bean.Cliente;
 import assistec.model.bean.Equipamento;
 import assistec.model.bean.Marca;
-import assistec.model.dao.GenericHibernateDAO;
+import assistec.model.service.ClienteService;
+import assistec.model.service.EquipamentoService;
+import assistec.model.service.MarcaService;
 
 public class ExibeEquipamento implements ServiceITF {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
-		GenericHibernateDAO<Equipamento> dao = new GenericHibernateDAO<Equipamento>(Equipamento.class);
-		Long id = null;
-		if (request.getParameter("id")!=null) {
-			id = Long.parseLong( request.getParameter("id") );
-			Equipamento equipamento = dao.search(id);
+		String paramId = request.getParameter("id");
+		if ( paramId!=null) {
+			Equipamento equipamento = new EquipamentoService().selecionaPorId(paramId);
 			if ( equipamento==null) {
-				throw new RuntimeException("Cliente com id " + id+ " não encontrado");
+				throw new RuntimeException("Cliente com id " + paramId+ " não encontrado");
 			}
 			request.setAttribute("equipamento", equipamento);
 		} 
 		
-		GenericHibernateDAO<Marca> daoMarca = new GenericHibernateDAO<Marca>(Marca.class);
-		List<Marca> listaMarca = daoMarca.listAll();
+		List<Marca> listaMarca = new MarcaService().listaTodas();
 		request.setAttribute("listaMarca", listaMarca);
-		GenericHibernateDAO<Cliente> clienteDao =  new GenericHibernateDAO<Cliente>(Cliente.class);
-		List<Cliente>listaCliente = clienteDao.listAll();
+		List<Cliente>listaCliente = new ClienteService().listaTodos();
 		request.setAttribute("listaCliente", listaCliente);
 		request.getRequestDispatcher( "equipamento_pg.jsp").forward(request, response);
 	}

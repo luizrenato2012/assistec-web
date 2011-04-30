@@ -26,7 +26,6 @@ public class GenericHibernateDAO<T> implements DAO<T> {
 			result = (Long) session.save(t);
 			return result;
 		} catch (Exception e ) {
-			session.getTransaction().rollback();
 			throw new DAOException(e);
 		}
 	}
@@ -38,7 +37,6 @@ public class GenericHibernateDAO<T> implements DAO<T> {
 			session.update(t);
 			System.out.println( "Atualizado "  + t );
 		} catch (Exception e ) {
-			session.getTransaction().rollback();
 			throw new DAOException(e);
 		}
 	}
@@ -49,19 +47,16 @@ public class GenericHibernateDAO<T> implements DAO<T> {
 		try {
 			session.saveOrUpdate(t);
 		} catch (Exception e ) {
-			session.getTransaction().rollback();
 			throw new DAOException(e);
 		}
 	}
 
 	@Override
 	public void remove(Long id, Class classe) {
-//		session.beginTransaction();
 		try {
 			T t = (T) session.get(classe, id);
 			session.delete(t);
 		} catch (Exception e ) {
-			session.getTransaction().rollback();
 			throw new DAOException(e);
 		}
 	}
@@ -69,7 +64,7 @@ public class GenericHibernateDAO<T> implements DAO<T> {
 	@Override
 	public T search(Serializable id,Class classe ) {
 		try {
-			return (T)	session.get(classe, s);
+			return (T)	session.get(classe, id);
 		} catch (Exception e ) {
 			throw new DAOException(e);
 		}
@@ -82,7 +77,6 @@ public class GenericHibernateDAO<T> implements DAO<T> {
 			Criteria criteria = session.createCriteria(classe);
 			return criteria.list();
 		} catch ( Exception e ) {
-			session.getTransaction().rollback();
 			throw new DAOException(e);
 		}
 	}
@@ -93,7 +87,6 @@ public class GenericHibernateDAO<T> implements DAO<T> {
 			Criteria criteria = session.createCriteria(classe);
 			return criteria.add(Restrictions.like(propertyName, value+"%")).list();
 		} catch ( Exception e ) {
-			session.getTransaction().rollback();
 			throw new DAOException(e);
 		} 
 	}
@@ -104,7 +97,6 @@ public class GenericHibernateDAO<T> implements DAO<T> {
 			Criteria criteria = session.createCriteria(classe);
 			return criteria.list();
 		} catch ( Exception e ) {
-			session.getTransaction().rollback();
 			throw new DAOException(e);
 		} 
 	}
@@ -116,7 +108,6 @@ public class GenericHibernateDAO<T> implements DAO<T> {
 			query.setParameter(property, value);
 			return query.list();
 		} catch ( Exception e ) {
-			session.getTransaction().rollback();
 			throw new DAOException(e);
 		} 
 	}

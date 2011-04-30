@@ -4,8 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import assistec.model.bean.Cliente;
-import assistec.model.dao.GenericHibernateDAO;
-import assistec.model.dao.GenericMemoryDao;
+import assistec.model.service.ClienteService;
 import assistec.util.UtilAssistec;
 
 
@@ -13,15 +12,14 @@ public class EditaCliente implements ServiceITF {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		GenericHibernateDAO<Cliente> dao = new GenericHibernateDAO<Cliente>(Cliente.class);
-		if ( UtilAssistec.isVazia(request.getParameter("id"))) {
+		String paramId = request.getParameter("id");
+		if ( UtilAssistec.isVazia(paramId)) {
 			request.setAttribute("msgErro", "id selecionado inválido");
 			request.getRequestDispatcher("pesquisa/cliente_pg.jsp").forward(request, response);
 		} else {
-			Long id = Long.parseLong( request.getParameter("id") );
-			Cliente cliente = dao.search(id);
+			Cliente cliente = new ClienteService().selecionaPorId(paramId);
 			if ( cliente==null) {
-				throw new RuntimeException("Cliente com id " + id+ " não encontrado");
+				throw new RuntimeException("Cliente com id " + paramId+ " não encontrado");
 			}
 			request.setAttribute("cliente", cliente);
 			request.setAttribute("listUf", ListaUf.getLista());

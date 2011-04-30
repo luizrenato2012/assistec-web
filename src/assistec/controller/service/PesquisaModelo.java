@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import assistec.model.bean.Modelo;
 import assistec.model.dao.GenericHibernateDAO;
+import assistec.model.service.ModeloService;
 import assistec.util.UtilAssistec;
 
 public class PesquisaModelo implements ServiceITF {
@@ -14,14 +15,14 @@ public class PesquisaModelo implements ServiceITF {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
-		GenericHibernateDAO<Modelo> dao = new GenericHibernateDAO<Modelo>(Modelo.class);
+		
 		//recebe descricao do modelo como parametro 
 		String argDescricao = request.getParameter("descricao");
 		if ( UtilAssistec.isVazia(argDescricao)) {
 			request.getRequestDispatcher( "/pesquisa/modelo_pg.jsp").forward(request, response);
 			return;
 		}
-		List<Modelo> list = dao.listLike(argDescricao, "descricao");
+		List<Modelo> list = new ModeloService().pesquisaPorDescricao(argDescricao);
 		if ( UtilAssistec.isVazia(list)) {
 			request.setAttribute("msgAviso", "Modelo não encontrado");
 		} else {

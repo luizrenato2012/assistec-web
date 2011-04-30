@@ -39,7 +39,7 @@ public class MarcaFacadeAjax {
 	public List<Modelo> listModelo(String  idMarcaStr ) {
 		List<Modelo>lista=null;
 		try {
-			lista = new ModeloService().listPorIdMarca(idMarcaStr);
+			lista = new ModeloService().pesquisaPorIdMarca(idMarcaStr);
 		} catch (ServiceException e) {
 			e.printStackTrace();
 		}

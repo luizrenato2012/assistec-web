@@ -12,7 +12,7 @@ import assistec.util.UtilAssistec;
 
 public class ModeloService {
 	
-	public List<Modelo>listPorIdMarca(String strIdMarca) throws ServiceException {
+	public List<Modelo>pesquisaPorIdMarca(String strIdMarca) throws ServiceException {
 		Session session = null;
 		try {
 			List<Modelo> lista = null;
@@ -71,7 +71,26 @@ public class ModeloService {
 			modelo.setMarca(marca);
 		}
 		modeloDAO.saveUpdate(modelo);
+		session.getTransaction().commit();
 		return modelo.getId();
+		} catch (Exception e ) {
+			if(session!=null) {
+				session.getTransaction().rollback();
+			}
+			throw new ServiceException(e);
+		}
+	}
+	
+	public List<Modelo> pesquisaPorDescricao(String descricao) throws ServiceException{
+		Session session = null;
+		List<Modelo> lista = null;
+		
+		try {
+			session = HibernateUtil.getSessionFactory().getCurrentSession();
+			session.beginTransaction();
+			lista = new GenericHibernateDAO<Modelo>(session).listLike(descricao,"descricao",Modelo.class);
+			session.getTransaction().commit();
+			return lista;
 		} catch (Exception e ) {
 			if(session!=null) {
 				session.getTransaction().rollback();

@@ -4,16 +4,44 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 @Entity
 @Table(name="assistec.chamado")
-@SequenceGenerator(name="SEQ_CHAMADO",sequenceName="assistec.id_seq_chamado")
 public class Chamado {
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Long id;
+	private Date dataHoraAbertura;
+	private Date dataHoraFechamento;
+	private String defeitoReclamado;
+	private String aberto;
+	private Boolean situacao;
+	private String observacao;
+	
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="id_cliente")
+	private Cliente cliente;
+	
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="id_equipamento")
+	private Equipamento equipamento;
+	
+	@OneToMany(mappedBy="chamado",fetch=FetchType.LAZY)
+	@Cascade(CascadeType.ALL)
+	private List<Atendimento> atendimentos ;
+	
 	public Long getId() {
 		return id;
 	}
@@ -38,11 +66,11 @@ public class Chamado {
 	public void setDefeitoReclamado(String defeitoReclamado) {
 		this.defeitoReclamado = defeitoReclamado;
 	}
-	public String getSolicitante() {
-		return solicitante;
+	public String getAberto() {
+		return aberto;
 	}
-	public void setSolicitante(String solicitante) {
-		this.solicitante = solicitante;
+	public void setAberto(String solicitante) {
+		this.aberto = solicitante;
 	}
 	public Boolean getSituacao() {
 		return situacao;
@@ -74,19 +102,7 @@ public class Chamado {
 	public void setAtendimentos(List<Atendimento> atendimentos) {
 		this.atendimentos = atendimentos;
 	}
-	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="SEQ_CHAMADO")
-	private Long id;
-	private Date dataHoraAbertura ;
-	private  Date dataHoraFechamento;
-	private  String defeitoReclamado;
-	private  String solicitante;
-	private  Boolean situacao;
-	private  String observacao;
-	
-	private  Cliente cliente;
-	private  Equipamento equipamento;
-	private List<Atendimento> atendimentos ;
+
 	
 	
 }

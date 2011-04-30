@@ -78,6 +78,7 @@ public class EquipamentoService {
 	 * @throws ServiceException */
 	public List<Equipamento> find (String tipoArgumento,String valor) throws ServiceException {
 		String query = ParametroPesquisaEquipamento.getQuery(tipoArgumento);
+		System.out.println("query " + query );
 		Session session=null;
 		try {
 			session = HibernateUtil.getSessionFactory().getCurrentSession();
@@ -93,7 +94,7 @@ public class EquipamentoService {
 		}
 	}
 	
-	public Equipamento findById (String idStr) throws ServiceException {
+	public Equipamento selecionaPorId (String idStr) throws ServiceException {
 		Session session=null;
 		String query="from Equipamento eq join fetch eq.marca ma "+
 					" join fetch eq.modelo mo "+

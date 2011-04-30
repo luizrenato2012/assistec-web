@@ -3,26 +3,34 @@ package assistec.model.bean;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
-@SequenceGenerator(name="SEQ_ATENDIMENTO",sequenceName="assistec.id_seq_atendimento")
+@Table(name="assistec.Atendimento")
 public class Atendimento {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="SEQ_ATENDIMENTO")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
-	private Date data ;
-	private Date dataHoraInicial;
-	private Date dataHoraFinal;
+	private Date data;
+	private Date horaInicial;
+	private Date horaFinal;
 	private String descricao;
 	private String defeitoConstatado;
 	private String observacao;
 	
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="id_tecnico")
 	private Tecnico tecnico;
+	
+	@ManyToOne (fetch=FetchType.LAZY)
+	@JoinColumn(name="id_chamado")
 	private Chamado chamado;
 	
 	public Atendimento() {
@@ -45,20 +53,20 @@ public class Atendimento {
 		this.data = data;
 	}
 
-	public Date getDataHoraInicial() {
-		return dataHoraInicial;
+	public Date getHoraInicial() {
+		return horaInicial;
 	}
 
-	public void setDataHoraInicial(Date dataHoraInicial) {
-		this.dataHoraInicial = dataHoraInicial;
+	public void setHoraInicial(Date dataHoraInicial) {
+		this.horaInicial = dataHoraInicial;
 	}
 
-	public Date getDataHoraFinal() {
-		return dataHoraFinal;
+	public Date getHoraFinal() {
+		return horaFinal;
 	}
 
-	public void setDataHoraFinal(Date dataHoraFinal) {
-		this.dataHoraFinal = dataHoraFinal;
+	public void setHoraFinal(Date dataHoraFinal) {
+		this.horaFinal = dataHoraFinal;
 	}
 
 	public Tecnico getTecnico() {
@@ -100,7 +108,5 @@ public class Atendimento {
 	public void setDefeitoConstatado(String defeitoConstatado) {
 		this.defeitoConstatado = defeitoConstatado;
 	}
-	
-	
 	
 }

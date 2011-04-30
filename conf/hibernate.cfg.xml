@@ -24,5 +24,7 @@
     	<mapping class="assistec.model.bean.Modelo"/>
     	<mapping class="assistec.model.bean.Equipamento"/>
     	<mapping class="assistec.model.bean.Chamado"/>
+    	<mapping class="assistec.model.bean.Atendimento"/>
+    	<mapping class="assistec.model.bean.Tecnico"/>
     </session-factory>
 </hibernate-configuration>

@@ -10,7 +10,7 @@ import assistec.model.dao.HibernateUtil;
 
 public class ClienteService {
 	
-	public List<Cliente> findbyNome(String nome) throws ServiceException {
+	public List<Cliente> pesquisaPorNome(String nome) throws ServiceException {
 		Session session = null;
 		try {
 			List<Cliente> lista = null;
@@ -28,7 +28,7 @@ public class ClienteService {
 		}
 	}
 	
-	public Cliente findbyId(String strId) throws ServiceException {
+	public Cliente selecionaPorId(String strId) throws ServiceException {
 		Session session = null;
 		Cliente cliente = null;
 		try {
@@ -45,6 +45,23 @@ public class ClienteService {
 			throw new ServiceException(e);
 		}
 		return cliente;
+	}
+	
+	public List<Cliente> listaTodos() throws ServiceException {
+		Session session = null;
+		try {
+			List<Cliente> lista = null;
+			session = HibernateUtil.getSessionFactory().getCurrentSession();
+			session.beginTransaction();
+			lista = new GenericHibernateDAO<Cliente>(session).listAll(Cliente.class);
+			session.getTransaction().commit();
+			return lista;
+		}catch (Exception e ) {
+			if(session!=null) {
+				session.getTransaction().rollback();
+			}
+			throw new ServiceException(e);
+		}
 	}
 	
 	

@@ -17,7 +17,6 @@ public class MarcaService {
 			session = HibernateUtil.getSessionFactory().getCurrentSession();
 			session.beginTransaction();
 
-			session.getTransaction().commit();
 			lista = new GenericHibernateDAO(session).listAll(Marca.class);
 			session.getTransaction().commit();
 		} catch(Exception e ) {
@@ -36,9 +35,7 @@ public class MarcaService {
 			session = HibernateUtil.getSessionFactory().getCurrentSession();
 			session.beginTransaction();
 
-			session.getTransaction().commit();
-			lista = new GenericHibernateDAO(session).listLike(nome, "nome", 
-					Marca.class);
+			lista = new GenericHibernateDAO<Marca>(session).listLike(nome, "nome", Marca.class);
 			session.getTransaction().commit();
 		} catch(Exception e ) {
 			if(session!=null) {
@@ -47,6 +44,28 @@ public class MarcaService {
 			throw new ServiceException(e);
 		}
 		return lista;
+	}
+	
+	/** 
+	 * seleciona uma Marca pelo id 
+	 */
+	public Marca seleciona(String paramId) throws ServiceException {
+		Session session=null;
+		try{
+			Marca marca = null;
+			session = HibernateUtil.getSessionFactory().getCurrentSession();
+			session.beginTransaction();
+			marca=  new GenericHibernateDAO<Marca>(session).search(Long.parseLong(paramId), 
+					Marca.class);
+			session.getTransaction().commit();
+			return marca;
+		} catch (Exception e ) {
+			if(session!=null) {
+				session.getTransaction().rollback();
+			}
+			throw new ServiceException(e);
+		}
+		
 	}
 
 

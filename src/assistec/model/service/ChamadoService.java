@@ -41,7 +41,7 @@ public class ChamadoService {
 			idEquipamento = Long.parseLong(strIdEquipamento);
 			Chamado chamado = new Chamado();
 			chamado.setDataHoraAbertura(data);
-			chamado.setSolicitante(solicitante);
+			chamado.setAberto(solicitante);
 			chamado.setObservacao(observacao);
 			
 			session = HibernateUtil.getSessionFactory().getCurrentSession();

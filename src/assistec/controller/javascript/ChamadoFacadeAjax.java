@@ -18,7 +18,7 @@ public class ChamadoFacadeAjax {
 //		return new GenericHibernateDAO<Cliente>(Cliente.class).listLike(nome,"nome");
 		List<Cliente>lista=null;
 		try {
-			lista = new ClienteService().findbyNome(nome);
+			lista = new ClienteService().pesquisaPorNome(nome);
 		} catch (ServiceException e) {
 			e.printStackTrace();
 		}
@@ -32,7 +32,7 @@ public class ChamadoFacadeAjax {
 //		return new GenericHibernateDAO<Cliente>(Cliente.class).search(id);
 		Cliente cliente = null;
 		try {
-			cliente = new ClienteService().findbyId(paramId);
+			cliente = new ClienteService().selecionaPorId(paramId);
 		} catch (ServiceException e) {
 			e.printStackTrace();
 		}
@@ -68,7 +68,7 @@ public class ChamadoFacadeAjax {
 		Equipamento equipamento=null;
 		try {
 			System.out.println("findEquipamentoById");
-			equipamento = new EquipamentoService().findById(strId);
+			equipamento = new EquipamentoService().selecionaPorId(strId);
 		} catch (ServiceException e) {
 			e.printStackTrace();
 		}
