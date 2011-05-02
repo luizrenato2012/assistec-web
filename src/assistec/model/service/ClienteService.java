@@ -7,6 +7,7 @@ import org.hibernate.Session;
 import assistec.model.bean.Cliente;
 import assistec.model.dao.GenericHibernateDAO;
 import assistec.model.dao.HibernateUtil;
+import assistec.util.UtilAssistec;
 
 public class ClienteService {
 	
@@ -63,6 +64,71 @@ public class ClienteService {
 			throw new ServiceException(e);
 		}
 	}
+	
+	public void exclui(String paramId) throws ServiceException {
+		Session session = null;
+		try {
+			session = HibernateUtil.getSessionFactory().getCurrentSession();
+			session.beginTransaction();
+			new GenericHibernateDAO<Cliente>(session).remove(Long.parseLong(paramId), 
+					Cliente.class);
+			session.getTransaction().commit();
+		}catch (Exception e ) {
+			if(session!=null) {
+				session.getTransaction().rollback();
+			}
+			throw new ServiceException(e);
+		}
+	}
+	
+	public Long gravaCliente(Cliente cliente ) throws ServiceException {
+		Session session = null;
+		try {
+			session = HibernateUtil.getSessionFactory().getCurrentSession();
+			session.beginTransaction();
+			GenericHibernateDAO<Cliente> clienteDAO = new GenericHibernateDAO<Cliente>(session);
+			clienteDAO.saveUpdate(cliente);
+			session.getTransaction().commit();
+			return cliente.getId();
+		}catch (Exception e) {
+			if(session!=null) {
+				session.getTransaction().rollback();
+			}
+			throw new ServiceException(e);
+		}
+	}
+	
+	public Long gravaCliente(String nome,String endereco,String cidade,String uf, 
+			String telefone,String paramId) throws ServiceException {
+		Session session = null;
+		try {
+			session = HibernateUtil.getSessionFactory().getCurrentSession();
+			session.beginTransaction();
+			GenericHibernateDAO<Cliente> clienteDAO = new GenericHibernateDAO<Cliente>(session);
+			Cliente cliente=null;
+			
+			if(UtilAssistec.isVazia(paramId)) {
+				cliente = new Cliente();
+			} else {
+				cliente = clienteDAO.search(Long.parseLong(paramId), Cliente.class);
+			}
+			cliente.setNome(nome);
+			cliente.setEndereco(endereco);
+			cliente.setCidade(cidade);
+			cliente.setUf(uf);
+			cliente.setTelefone(telefone);
+			
+			clienteDAO.saveUpdate(cliente);
+			session.getTransaction().commit();
+			return cliente.getId();
+		}catch (Exception e) {
+			if(session!=null) {
+				session.getTransaction().rollback();
+			}
+			throw new ServiceException(e);
+		}
+	}
+	
 	
 	
 

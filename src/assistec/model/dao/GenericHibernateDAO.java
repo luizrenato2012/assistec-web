@@ -80,7 +80,8 @@ public class GenericHibernateDAO<T> implements DAO<T> {
 			throw new DAOException(e);
 		}
 	}
-
+	
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<T> listLike(Serializable value, String propertyName,Class classe) {
 		try {
@@ -91,6 +92,7 @@ public class GenericHibernateDAO<T> implements DAO<T> {
 		} 
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<T> listAll(Class classe) {
 		try {
@@ -101,6 +103,7 @@ public class GenericHibernateDAO<T> implements DAO<T> {
 		} 
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<T> list(String hql,String property, Object value) {
 		try {

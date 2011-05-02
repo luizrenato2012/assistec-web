@@ -21,7 +21,10 @@ public class PesquisaEquipamento implements ServiceITF {
 		
 		String tipo = request.getParameter("tipoArgumento");
 		String argumento = request.getParameter("argumento");
-			
+		
+		System.out.println("tipoArgumento " + tipo);
+		System.out.println("Argumento " + argumento );
+		
 		List<Equipamento> listaEquipamento =new EquipamentoService().find(tipo,	argumento);
 		
 		if ( UtilAssistec.isVazia(listaEquipamento)) {

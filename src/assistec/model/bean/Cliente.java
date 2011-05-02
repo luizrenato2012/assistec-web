@@ -78,5 +78,16 @@ public class Cliente {
 	}
 	
 	
+	@Override
+	public boolean equals(Object obj) {
+		if (obj!=null && obj instanceof Cliente) {
+			Cliente cliente = (Cliente)obj;
+			return this.id.equals(cliente.getId()) &&
+					this.getNome().equals(cliente.getNome()); 
+		} else {
+			return false;
+		}
+	}
+	
 
 }

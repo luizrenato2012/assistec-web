@@ -37,12 +37,13 @@
 	        		<c:url value='${applicationContext}/img/delete.png' var="img_url"/>
 	        		<img  title="Exclui ${equipamento.descricao}" src="${img_url}"/></a>
 	        </td> -->
-		    <td><a title="Edita ${equipamento.descricao}" href="<c:url value='executa?operacao=EditaEquipamento&id=${equipamento.id}'/>">${equipamento.descricao}</a></td>
+		<!--     <td><a title="Edita ${equipamento.descricao}" href="<c:url value='executa?operacao=EditaEquipamento&id=${equipamento.id}'/>">${equipamento.descricao}</a></td>
 			<td>${equipamento.marca.nome}</td>
 			<td>${equipamento.modelo.descricao}</td>
 			<td>${equipamento.numeroSerie}</td>
 			<td>${equipamento.patrimonio}</td>
-			<td>${equipamento.cliente.nome}</td>
+			<td>${equipamento.cliente.nome}</td>  -->
+			<h3>${equipamento.descriccao}</h3> 
 		</tr>
 	</c:forEach>
 	</table>

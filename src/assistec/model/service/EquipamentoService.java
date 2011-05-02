@@ -17,7 +17,7 @@ import assistec.util.UtilAssistec;
 public class EquipamentoService {
 	
 	/**altera ou inclui equipamento */
-	public Long grava (String idStr , String descricao ,String strIdMarca,
+	public Long grava (String paramId , String descricao ,String strIdMarca,
 			String strIdModelo,String strIdCliente,String observacao,
 			String patrimonio,String numeroSerie) throws ServiceException {
 		Session session = null;
@@ -29,10 +29,10 @@ public class EquipamentoService {
 				throw new ServiceException("Descrição inválida");
 			}
 			Equipamento equipamento = null;
-			if (UtilAssistec.isVazia(idStr)) {
+			if (UtilAssistec.isVazia(paramId)) {
 				equipamento = new Equipamento();
 			} else {
-				Long id = Long.parseLong(idStr);
+				Long id = Long.parseLong(paramId);
 				equipamento = equipamentoDAO.search(id, Equipamento.class);
 			}
 
@@ -86,6 +86,7 @@ public class EquipamentoService {
 			List<Equipamento> lista = new GenericHibernateDAO<Equipamento>(session).list(query, 
 					tipoArgumento, valor+"%");
 			session.getTransaction().commit();
+			System.out.println("total registros " + lista.size());
 			return lista!=null ? lista: new ArrayList<Equipamento>();
 		} catch (Exception e ) {
 			if(session!=null)

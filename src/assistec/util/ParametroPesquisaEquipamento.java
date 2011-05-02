@@ -14,12 +14,12 @@ public class ParametroPesquisaEquipamento {
 	
 	static {
 		mapParamQuery = new HashMap<String,String>();
-		mapParamQuery.put("id", "From Equipamento where id=:id");
-		mapParamQuery.put("descricao", "From Equipamento where descricao like :descricao ");
-		mapParamQuery.put("marca","From Equipamento where marca.nome like :marca");
-		mapParamQuery.put("modelo", "From Equipamento where modelo.descricao like :modelo");
-		mapParamQuery.put("numeroSerie", "From Equipamento where numeroSerie like :numeroSerie");
-		mapParamQuery.put("patrimonio", "From Equipamento where patrimonio like :patrimonio");
+		mapParamQuery.put("id", "From Equipamento as equipamento join equipamento.cliente as cliente where equipamento.id=:id");
+		mapParamQuery.put("descricao", "From Equipamento as equipamento join eq.cliente as cliente where equipamento.descricao like :descricao ");
+		mapParamQuery.put("marca","From Equipamento as equipamento join equipamento.cliente as cliente where equipamento.marca.nome like :marca");
+		mapParamQuery.put("modelo", "From Equipamento as equipamento join equipamento.cliente as cliente where equipamento.modelo.descricao like :modelo");
+		mapParamQuery.put("numeroSerie", "From Equipamento as equipamento join equipamento.cliente as cliente where equipamento.numeroSerie like :numeroSerie");
+		mapParamQuery.put("patrimonio", "From Equipamento as equipamento join equipamento.cliente as cliente where equipamento.patrimonio like :patrimonio");
 		
 	}
 	
