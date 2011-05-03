@@ -60,7 +60,7 @@ public class GenericHibernateDAO<T> implements DAO<T> {
 			throw new DAOException(e);
 		}
 	}
-
+	
 	@Override
 	public T search(Serializable id,Class classe ) {
 		try {

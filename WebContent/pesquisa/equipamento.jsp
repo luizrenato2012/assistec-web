@@ -26,26 +26,26 @@
 		<a class="link_pesquisa" href="<c:url value='${applicationContext}/equipamento_pg.jsp'/>"/>Voltar</a>
 	</div>
 	
-	
+
 <c:if test="${not empty listaEquipamento}">
 	<table>
+	<th></th>
 	<th>Descricao</th><th>Marca</th><th>Modelo</th><th>No Serie</th><th>Patrimonio</th> <th>Cliente</th>
-	<c:forEach items="${listaEquipamento}" var="equipamento">
-		<tr>
-	      <!--   <td>
+ <c:forEach items="${listaEquipamento}" var="equipamento">
+	 	<tr>
+	         <td>
 	        	<a href="<c:url value='executa?operacao=Exclui&id=${cliente.id}&viewArg=${viewArg}'/>">
 	        		<c:url value='${applicationContext}/img/delete.png' var="img_url"/>
 	        		<img  title="Exclui ${equipamento.descricao}" src="${img_url}"/></a>
-	        </td> -->
-		<!--     <td><a title="Edita ${equipamento.descricao}" href="<c:url value='executa?operacao=EditaEquipamento&id=${equipamento.id}'/>">${equipamento.descricao}</a></td>
+	        </td> 
+		    <td><a title="Edita ${equipamento.descricao}" href="<c:url value='executa?operacao=EditaEquipamento&id=${equipamento.id}'/>">${equipamento.descricao}</a></td>
 			<td>${equipamento.marca.nome}</td>
 			<td>${equipamento.modelo.descricao}</td>
 			<td>${equipamento.numeroSerie}</td>
 			<td>${equipamento.patrimonio}</td>
-			<td>${equipamento.cliente.nome}</td>  -->
-			<h3>${equipamento.descriccao}</h3> 
-		</tr>
-	</c:forEach>
-	</table>
+			<td>${equipamento.cliente.nome}</td>
+		</tr> 
+	</c:forEach> 
+	</table> 
 </c:if>
 </form>  
