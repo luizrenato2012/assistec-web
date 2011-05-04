@@ -27,7 +27,6 @@ public class Modelo {
 	
 	public Modelo() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Long getId() {

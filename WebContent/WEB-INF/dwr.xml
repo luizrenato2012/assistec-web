@@ -10,6 +10,16 @@
 		<create creator="new" javascript="ChamadoFacadeAjax">
 			<param name="class" value="assistec.controller.javascript.ChamadoFacadeAjax"/>
 		</create>
-		<convert converter="bean" match="assistec.model.bean.*"/>
+		<convert converter="bean" match="assistec.model.bean.Atendimento"/>
+		<convert converter="bean" match="assistec.model.bean.Cliente"/>
+		<convert converter="bean" match="assistec.model.bean.Chamado"/>
+		<convert converter="bean" match="assistec.model.bean.Equipamento"/>
+		<convert converter="bean" match="assistec.model.bean.Marca">
+			<!-- faz com que a lista (que nao é carregada na pesquisa de quipamentos)
+				seja ignorada pelo DWR--> 
+			<param name="exclude" value="modelos"/>
+		</convert>	
+		<convert converter="bean" match="assistec.model.bean.Modelo"/>
+		<convert converter="bean" match="assistec.model.bean.Tecnico"/>
 	</allow>
 </dwr>

@@ -15,7 +15,7 @@ public class ParametroPesquisaEquipamento {
 	static {
 		mapParamQuery = new HashMap<String,String>();
 		mapParamQuery.put("id", "From Equipamento as equipamento join fetch equipamento.cliente cliente where equipamento.id=:id");
-		mapParamQuery.put("descricao", "From Equipamento as equipamento join fetch equipamento.cliente cliente where equipamento.descricao like :descricao ");
+		mapParamQuery.put("descricao", "From Equipamento as equipamento join fetch equipamento.cliente cliente where equipamento.descricao like :descricao");
 		mapParamQuery.put("marca","From Equipamento as equipamento join fetch equipamento.cliente cliente where equipamento.marca.nome like :marca");
 		mapParamQuery.put("modelo", "From Equipamento as equipamento join fetch equipamento.cliente cliente where equipamento.modelo.descricao like :modelo");
 		mapParamQuery.put("numeroSerie", "From Equipamento equipamento join fetch equipamento.cliente cliente where numeroSerie like :numeroSerie");

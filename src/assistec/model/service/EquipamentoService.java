@@ -78,7 +78,8 @@ public class EquipamentoService {
 	 * @throws ServiceException */
 	public List<Equipamento> find (String tipoArgumento,String valor) throws ServiceException {
 		String query = ParametroPesquisaEquipamento.getQuery(tipoArgumento);
-		System.out.println("query " + query );
+		System.out.println(">>> find");
+		System.out.println(">>> query " + query );
 		Session session=null;
 		try {
 			session = HibernateUtil.getSessionFactory().getCurrentSession();

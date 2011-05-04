@@ -35,7 +35,7 @@ function fillCliente(cliente) {
 function findEquipamento() {
 	var tipo = dwr.util.getValue('cbx_equipamento');
 	var valor = dwr.util.getValue('argPesquisaEquipamento');
-	ChamadoFacadeAjax.findEquipamento(tipo,valor,fillTblEquipamento);
+	 ChamadoFacadeAjax.findEquipamento(tipo,valor,fillTblEquipamento);
 	
 }
 /** preenche fields de equipamento */
@@ -43,7 +43,8 @@ function fillTblEquipamento (list) {
 	cellFuncs = [
 		            function(data) { return "<input type=\'radio\' name=\'radio\' onclick=\'selectEquipamento("+ data.id + ")\'/>"+data.id ;} , 
 		            function(data) { return data.descricao ;} ,
-		            function(data) { return data.marca.nome   ;} , 
+		            function(data) { return "marca"  ;} ,
+		            	/* return data.marca.nome   ;} , */
 		            function(data) { return data.modelo.descricao ;},
 		            function(data) { return data.numeroSerie ;},
 		            function(data) { return data.patrimonio;},
