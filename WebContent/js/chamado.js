@@ -41,18 +41,18 @@ function findEquipamento() {
 /** preenche fields de equipamento */
 function fillTblEquipamento (list) {
 	cellFuncs = [
-		            function(data) { return "<input type=\'radio\' name=\'radio\' onclick=\'selectEquipamento("+ data.id + ")\'/>"+data.id ;} , 
+		            function(data) { return "<input type=\'radio\' name=\'rdEquipamento\' onclick=\'selectEquipamento("+ data.id + ")\'/>"+data.id ;} , 
 		            function(data) { return data.descricao ;} ,
-		            function(data) { return "marca"  ;} ,
-		            	/* return data.marca.nome   ;} , */
+		            function(data) { return data.marca.nome   ;} , 
 		            function(data) { return data.modelo.descricao ;},
 		            function(data) { return data.numeroSerie ;},
 		            function(data) { return data.patrimonio;},
 		            function(data) { return data.cliente.nome;},
 		            ];	
 		dwr.util.removeAllRows("tbodyEquipamento");
-		dwr.util.addRows("tbl_equipamento" , list, cellFuncs , {escapeHtml:false});
+		dwr.util.addRows("tbodyEquipamento" , list, cellFuncs , {escapeHtml:false});
 }
+
 function findEquipamentoId(id) {
 	ChamadoFacadeAjax.findEquipamentoById(id, fillEquipamento);
 }

@@ -11,7 +11,7 @@
 		<input type="hidden" name="id" value="${marca.id}"/>
 		<p><tg:campoTexto label="nome"  nameInput="nome" idInput="nome" value="${marca.nome}"></tg:campoTexto></p>
 		<div class="box_botao">
-		<input class="botao_cria" type="submit"  value="Cria"/>
+		<input class="botao_cria" type="submit" value="Cria"/>
 		<a class="link_pesquisa" href="pesquisa/marca_pg.jsp"/>Pesquisa</a>  
 	</div>
 	

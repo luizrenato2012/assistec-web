@@ -96,7 +96,7 @@
      	<input type="button" id="btnProcuraEquipamento" value="Procura"/> <br><br>
      	<table id="tbl_equipamento">
      		<tr>
-     		<th></th> <th> Descrição </th>  <th> Marca</th> <th> Modelo</th> <th>N. Série</th> <th>Patrimonio</th> <th>Cliente</th>
+     		<th>ID</th> <th> Descrição </th>  <th> Marca</th> <th> Modelo</th> <th>N. Série</th> <th>Patrimonio</th> <th>Cliente</th>
      		</tr>
      		<tr>
      			<tbody id="tbodyEquipamento"/>
@@ -105,3 +105,7 @@
      	
      	<input type="button" value="Seleciona" id="btnSelecionaEquipamento"/>
      </div>
+     <assistec:mensagemTag id="msg_Equipamento" titulo="Erro" mensagem="Selecione um equipamento"/>
+     <assistec:mensagemTag id="msg_Cliente" titulo="Erro" mensagem="Selecione um cliente"/>
+     
+ 
