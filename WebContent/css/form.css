@@ -55,10 +55,39 @@
 	margin-top: 2px;
 }
 
+.box_erro_chamado {
+	border: 1px solid #FF0000;
+	width: 400px;
+	/*margin-bottom: 5px;*/
+	margin-left: 300px;
+}
+
+.box_aviso_chamado {
+	border: 1px solid #0000FF;
+	width: 200px;
+	margin-bottom: 2px;
+	margin-top: 2px;
+	margin-left: 100px;
+}
+
+
 
 .erro_rotulo {
 	color: #FF0000;
 	margin-left: 5px;
+}
+
+#erro_rotulo_chamado {
+	color: #FF0000;
+	margin: 5px;
+	margin-left: 60px;
+}
+
+.aviso_rotulo_chamado {
+	color: #0000FF;
+	margin-left: 5px;
+	margin: 5px;
+	margin-left: 60px;
 }
 
 .aviso_rotulo {
@@ -105,9 +134,14 @@ border:1px solid gray;
 .box_titulo_2 {
 	border: 1px solid #BEBEBE;
 	width: 750px;
+	height: 40px;
 	margin-bottom: 5px;
 }
 
+#titulo_erro_chamado {
+	padding: 5px;
+	font-size: 14px ;
+}
 .box_botao_2 {
 	border: 1px solid #ccc;
 	width: 743px;
@@ -122,19 +156,4 @@ a:link {
 img {
 	border: none;
 }
-	
-/* table {
-	margin-top: 5px;
-	width: 500px;
-} */
 
-/*
-td {
-	text-align: center;
-	paddind: 2px 2px 2px 2px;
-} */
-
-/*
-th {
-	background-color: Green;
-} */

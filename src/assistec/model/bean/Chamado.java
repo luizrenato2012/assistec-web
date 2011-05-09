@@ -3,6 +3,7 @@ package assistec.model.bean;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -20,15 +21,24 @@ import org.hibernate.annotations.CascadeType;
 @Table(name="assistec.chamado")
 public class Chamado {
 	
+	public String getSolicitante() {
+		return solicitante;
+	}
+	public void setSolicitante(String solicitante) {
+		this.solicitante = solicitante;
+	}
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
+	@Column (name="data_hora_abertura")
 	private Date dataHoraAbertura;
+	@Column (name="data_hora_fechamento")
 	private Date dataHoraFechamento;
+	@Column(name="defeito_reclamado")
 	private String defeitoReclamado;
-	private String aberto;
-	private Boolean situacao;
+	private Boolean aberto;
 	private String observacao;
+	private String solicitante;
 	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="id_cliente")
@@ -66,17 +76,11 @@ public class Chamado {
 	public void setDefeitoReclamado(String defeitoReclamado) {
 		this.defeitoReclamado = defeitoReclamado;
 	}
-	public String getAberto() {
+	public Boolean getAberto() {
 		return aberto;
 	}
-	public void setAberto(String solicitante) {
-		this.aberto = solicitante;
-	}
-	public Boolean getSituacao() {
-		return situacao;
-	}
-	public void setSituacao(Boolean situacao) {
-		this.situacao = situacao;
+	public void setAberto(Boolean aberto) {
+		this.aberto = aberto;
 	}
 	public String getObservacao() {
 		return observacao;
@@ -102,7 +106,5 @@ public class Chamado {
 	public void setAtendimentos(List<Atendimento> atendimentos) {
 		this.atendimentos = atendimentos;
 	}
-
-	
 	
 }

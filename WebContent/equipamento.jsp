@@ -53,7 +53,6 @@
  		</select>
  	</p> 
  			
-			
 	</div>
 	<div class="box_botao">
 	<input class="botao_cria" type="submit"  value="Cria"/>

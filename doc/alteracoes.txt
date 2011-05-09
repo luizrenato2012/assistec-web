@@ -1,0 +1,26 @@
+21/04/11
+
+Pesquisa Equipamento
+Não pesquisava por partes dos arqgumentos
+ - GenericHibernateDAO 
+método :public List<T> list(String hql,String property, Object value) {
+acrescentado % no parametro
+ -PesquisaEquipamento 
+alteradas String´s com comando das query´s p/ like no map
+- incluido hint no link de exclusao e edicao
+
+Erro NullPointerException ao pesquisar por patrimonio
+Removido espaço no argumento patrimonio de mapParamQuery
+
+Pesquisa de Marcas
+ coluna de exclusao de registro
+ - incluido hint no link de exclusao e edicao
+ - retiradas bordas do icone do link de exclusao
+
+PENDENCIAS:
+Pesquisa de Marca 
+ - Implementar exclusao
+
+Pesquisa de Equipamento
+ - Implementar exclusao
+  - Ao editar selecionar combos de marca/modelo 

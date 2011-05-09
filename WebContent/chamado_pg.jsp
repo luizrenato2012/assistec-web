@@ -61,6 +61,10 @@
                 	$('#msg_Equipamento').dialog();
                 }
             });
+            function exibeErro(dialogErro) {
+     	 		alert('Erro');
+     	 /*		$(dialogErro).dialog(); */
+     		}
         });
        
     </script>

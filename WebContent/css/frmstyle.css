@@ -112,7 +112,16 @@ label.x-small { /* Possui IE fix */
 	font-size: 16px;
 	font-color: black;
 	font-weight: bold;
-	}
+}
+
+#label_secao_chamado {
+	margin-left: 8px;
+	margin-top: 5px;
+	margin: 5px;
+	font-size: 18px;
+	font-color: black;
+	font-weight: bold;
+}
 
 .separator {
 	border: 1px #BEBEBE solid;

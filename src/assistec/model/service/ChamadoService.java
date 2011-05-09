@@ -38,20 +38,24 @@ public class ChamadoService {
 		try {
 			data= fmt.parse(dataHora);
 			idCliente = Long.parseLong(strIdCliente);
-			idEquipamento = Long.parseLong(strIdEquipamento);
+			idEquipamento = !UtilAssistec.isVazia(strIdEquipamento)  ? 
+					Long.parseLong(strIdEquipamento) : null;
 			Chamado chamado = new Chamado();
 			chamado.setDataHoraAbertura(data);
-			chamado.setAberto(solicitante);
+			chamado.setAberto(true);
 			chamado.setObservacao(observacao);
 			
 			session = HibernateUtil.getSessionFactory().getCurrentSession();
 			session.beginTransaction();
-			GenericHibernateDAO<Equipamento> equipamentoDao = new GenericHibernateDAO<Equipamento>(session);
-			chamado.setEquipamento(equipamentoDao.search(idEquipamento,Equipamento.class));
+			
+			if (idEquipamento!=null) {
+				GenericHibernateDAO<Equipamento> equipamentoDao = new GenericHibernateDAO<Equipamento>(session);
+				chamado.setEquipamento(equipamentoDao.search(idEquipamento,Equipamento.class));
+			}
 			
 			GenericHibernateDAO<Cliente> clienteDao = new GenericHibernateDAO<Cliente>(session);
 			chamado.setCliente(clienteDao.search(idCliente,Cliente.class));
-			chamado.setSituacao(true);
+			chamado.setSolicitante(solicitante);
 			session.save(chamado);
 			session.getTransaction().commit();
 			return chamado.getId();
@@ -61,7 +65,7 @@ public class ChamadoService {
 			if(session != null) {
 				session.getTransaction().rollback();
 			}
-			throw new ServiceException("Erro ao abrir chamado",e);
+			throw new ServiceException("Erro ao abrir chamado ",e);
 			}
 		}
 		
