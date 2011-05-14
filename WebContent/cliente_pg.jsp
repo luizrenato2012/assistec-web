@@ -8,18 +8,13 @@
 </head>
 <body>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!-- 
-<div class="linha_header">
-<jsp:include page="header.jsp"/>
-</div>  -->
+
 <div class="logo"></div>
-
 <div class="coluna_menu">
-<jsp:include page="menu.jsp"/>
+	<jsp:include page="menu.jsp"/>
 </div>
-
 <div class="coluna_body">
-<jsp:include page="cliente.jsp"/>
+	<jsp:include page="cliente.jsp"/>
 </div>
 </body>
 </html>

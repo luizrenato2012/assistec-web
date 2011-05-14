@@ -16,17 +16,13 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 @Entity
 @Table(name="assistec.chamado")
 public class Chamado {
 	
-	public String getSolicitante() {
-		return solicitante;
-	}
-	public void setSolicitante(String solicitante) {
-		this.solicitante = solicitante;
-	}
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
@@ -51,6 +47,12 @@ public class Chamado {
 	@OneToMany(mappedBy="chamado",fetch=FetchType.LAZY)
 	@Cascade(CascadeType.ALL)
 	private List<Atendimento> atendimentos ;
+	public String getSolicitante() {
+		return solicitante;
+	}
+	public void setSolicitante(String solicitante) {
+		this.solicitante = solicitante;
+	}
 	
 	public Long getId() {
 		return id;
@@ -105,6 +107,21 @@ public class Chamado {
 	}
 	public void setAtendimentos(List<Atendimento> atendimentos) {
 		this.atendimentos = atendimentos;
+	}
+	
+	@Override
+	public String toString() {
+		return "ID " + this.id + " data abertura " + dataHoraAbertura;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (obj instanceof Chamado) {
+			return ((Chamado)obj).getId().equals(this.id);
+		} else {
+			
+		}
+		return super.equals(obj);
 	}
 	
 }

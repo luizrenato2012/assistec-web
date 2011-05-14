@@ -19,6 +19,7 @@
   	<script src="js/jquery/js/jquery-1.4.4.min.js"></script>
   	<script src="js/jquery/development-bundle/ui/jquery-ui-1.8.10.custom.js"></script>
 	
+	 <!--  tratamento de eventos pesquisa cliente e equipamentos -->
 	 <script type="text/javascript">
 
         $('document').ready(function () { 
@@ -54,7 +55,7 @@
                 var id = dwr.util.getValue('id_equipamento');
                 if( id!=null&&  id!='' ) {
                     findEquipamentoId(id );
-                    dwr.util.setValue('id_equipamento','');
+                  /*  dwr.util.setValue('id_equipamento',''); */
                     $('#dialog_equipamento').dialog('close');
                 } else {
                    /* alert('Pesquisa de equipamento','Selecione um equipamento!'); */
@@ -68,6 +69,42 @@
         });
        
     </script>
+    
+    <!-- formatacao ao digitar dd/MM/aaaa HH:mm -->
+	<script>
+		function formataDataHora(evento, objeto){
+			var keypress=(window.event)?event.keyCode:evento.which;
+			campo = eval (objeto);
+			if (campo.value == '00/00/0000 00:00:00') 		{
+				campo.value=""
+			}
+
+			caracteres = '0123456789';
+			separacao1 = '/';
+			separacao2 = ' ';
+			separacao3 = ':';
+			conjunto1 = 2;
+			conjunto2 = 5;
+			conjunto3 = 10;
+			conjunto4 = 13;
+			conjunto5 = 16;
+			/** 11/11/1111 11:11 */
+			if ((caracteres.search(String.fromCharCode (keypress))!=-1) && campo.value.length < (17)) 	{
+			if (campo.value.length == conjunto1 )
+			campo.value = campo.value + separacao1;
+			else if (campo.value.length == conjunto2)
+			campo.value = campo.value + separacao1;
+			else if (campo.value.length == conjunto3)
+			campo.value = campo.value + separacao2;
+			else if (campo.value.length == conjunto4)
+			campo.value = campo.value + separacao3;
+			else if (campo.value.length == conjunto5)
+			campo.value = campo.value;
+			}
+			else
+				event.returnValue = false;
+			}
+		</script>
 	
 
 </head>

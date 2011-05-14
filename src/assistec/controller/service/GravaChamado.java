@@ -21,7 +21,7 @@ public class GravaChamado implements ServiceITF {
 		
 		String idCliente = request.getParameter("idCliente");
 		String idEquipamento = request.getParameter("id_equipamento");
-		
+		System.out.println("id_equipamento " + idEquipamento);
 		try {
 			Long idChamado = new ChamadoService().abreChamado(dataHora, 
 					solicitante, defeito, observacao,idEquipamento, idCliente);

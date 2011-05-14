@@ -107,7 +107,7 @@ public class GenericHibernateDAO<T> implements DAO<T> {
 	@Override
 	public List<T> list(String hql,String property, Object value) {
 		try {
-			Query query = (Query) session.createQuery(hql );
+			Query query = (Query) session.createQuery(hql);
 			query.setParameter(property, value);
 			return query.list();
 		} catch ( Exception e ) {

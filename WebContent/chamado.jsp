@@ -1,5 +1,6 @@
 <%@ taglib tagdir="/WEB-INF/tags" prefix="tg" %>
 <%@ taglib tagdir="/WEB-INF/tags"  prefix="assistec"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <div class="box_titulo_2">
 <!-- <h3 class="small">Abre Chamado</h3>  -->
 	<label id="label_secao_chamado">Abre Chamado</label><br>
@@ -8,7 +9,8 @@
 <form id="frmstylizer" action="executa" method="get">
 	<input type="hidden" name="operacao" value="GravaChamado"/>
   	<fieldset>
-   		<label class="small">Data/Hora &#42; <input type="text" id="dataHora" name="dataHora"class="text" value="${param.dataHora}"/></label>
+   		<label class="small">Data/Hora &#42; <input type="text" id="dataHora" name="dataHora" 
+   			class="text" value="${param.dataHora}" onkeypress="formataDataHora(event,this)" maxlength="16"/></label>
    		<label class="small">Solicitante &#42; <input type="text" name="solicitante" class="text" value="${param.solicitante}"/></label>
    		<label class="large">Defeito Reclamado &#42; <input type="text" name="defeito" class="text" value="${param.defeito}"/></label>
    		<label class="full">Observacao <input type="text" name="observacao" class="text" value="${param.defeito}"/></label>
@@ -48,7 +50,8 @@
    		</fieldset>
   		<div class="box_botao_2">
 			<input class="botao_cria" type="submit"  value="Cria"/>
-			<a class="link_pesquisa" href="pesquisa.html"/>Pesquisa</a>
+			<c:url value="${applicationContext}/" var="applicationPath"/>
+			<a class="link_pesquisa" href="${applicationPath}executa?operacao=ExibePesquisaChamado"/>Pesquisa</a>
 		</div>
     <input type="hidden" id="idCliente" name="idCliente" value="${param.idCliente}"/>
     <input type="hidden" id="id_equipamento" name="id_equipamento" value="${param.id_equipamento}"/>
