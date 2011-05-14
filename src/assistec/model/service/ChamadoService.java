@@ -133,6 +133,7 @@ public class ChamadoService {
 	}
 	
 	public static void main(String[] args) {
+		String teste="correções";
 	}
 	
 	
