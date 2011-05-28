@@ -1,12 +1,13 @@
 
 .box {
 	border: 1px solid #BEBEBE;
-	width: 400px;
+	width: 100%;
+/*	height: 100%; */
 }
 
 .box_botao {
 	border: 1px solid #ccc;
-	width: 400px;
+	width: 100%;
 	background: #fff url(../img/shadow.jpg) bottom repeat-x;
 	margin-top: 5px;
 }
@@ -38,7 +39,7 @@
 
 .box_titulo {
 	border: 1px solid #BEBEBE;
-	width: 400px;
+	width: 100%;
 	margin-bottom: 5px;
 }
 
@@ -128,7 +129,8 @@
 }
 
 table, td, th {
-border:1px solid gray;
+	border:1px solid gray;
+	width: 100%;
 }
 
 .box_titulo_2 {

@@ -2,26 +2,36 @@
 <div class="box_titulo">
 <h3 class="titulo_rotulo">Registra Atendimento</h3>
 </div>
-<%@ taglib tagdir="/WEB-INF/tags" prefix="tg" %>
-<%@ taglib tagdir="/WEB-INF/tags"  prefix="assistec"%>
+
 <tg:aviso/>
-<form>
+	<script>
+		function teste() {
+			alert('pesquisando...'); 
+		} 
+	</script>
+	
 	<div class="box">	
-	<p><assistec:campoTexto idInput="numChamado" label="Nº Chamado" nameInput="numChamado"/></p>
-	<p><assistec:campoTexto idInput="cliente" label="Cliente" nameInput="dataHora"/></p>
-	<p><assistec:campoTexto idInput="equipamento" label="Equipamento" nameInput="equipamento.descricao"/></p>
-	<p><assistec:campoTexto idInput="marca" label="Marca" nameInput="equipamento.marca"/></p>
-	<p><assistec:campoTexto idInput="modelo" label="Modelo" nameInput="equipamento.modelo"/></p>
-	<p><assistec:campoTexto idInput="numSerie" label="Nº Serie" nameInput="equipamento.numeroSerie"/></p>
-	<p><assistec:campoTexto idInput="defeito" label="Defeito" nameInput="chamado.defeito"/></p>
-	<p><assistec:campoTexto idInput="data" label="Data" nameInput="data"/></p>
-	<p><assistec:campoTexto idInput="dataHoraInicial" label="Hora Inicial" nameInput="horaInicial"/></p>
-	<p><assistec:campoTexto idInput="dataHoraInicial" label="Hora Final" nameInput="horaFinal"/></p>
-	<p><assistec:campoTexto idInput="defeito" label="Defeito" nameInput="defeito"/></p>
-	<p><assistec:campoTexto idInput="descricao" label="Descricao" nameInput="descricao"/></p>
-	<p><assistec:campoTexto idInput="observacao" label="Observacao" nameInput="observacao"/></p>
-	<div class="box_botao">
-	<input class="botao_cria" type="submit"  value="Registra"/>
-	<a class="link_pesquisa" href="pesquisa.html"/>Pesquisa</a>
+		<label>Num. Chamado</label><input type="text"/> <input type="button" value="Pesquisar"><br/><br/>
+		
+		<!-- 
+		<label>Teste</label><input type="text"/><br/>
+		<label>Teste</label><input type="text"/><br/>
+		
+		<label>Teste</label><input type="text"/><br/>
+		<label>Teste</label><input type="text"/><br/>
+		<label>Teste</label><input type="text"/><br/>  -->
+		
+		<label class="small">Cliente</label><br/>
+		<input type="text" class="x-large"/><br/>
+		
+		<label class="small">Equipamento</label> </br>
+		<input type="text" class="x-large"  id="descricao" value="equipamento"/><br/>
+		
+		<label class="small">Marca</label> <label class="small">Modelo</label> <label class="small">N. Série</label> <br/>
+		<input type="text" class="small"  id="marca" value="marca do equipamento"/>
+		<input type="text" class="small" id="modelo" value="modelo do equipamento"/>
+		<input type="text" class="small" id="numSerie" value="numero de serie"/><br/>
+		<!-- 
+		
+		-->
 	</div>
-</form>

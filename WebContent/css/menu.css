@@ -43,6 +43,7 @@ body{
 	position: relative;
 	float: left;
 	margin-left: 50px;
+	width: 550px;
 	/* background: #fff url(../img/shadow.jpg) bottom repeat-xy; */
 }
 
