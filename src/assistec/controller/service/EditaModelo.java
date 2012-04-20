@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import assistec.model.bean.Marca;
 import assistec.model.bean.Modelo;
-import assistec.model.dao.GenericHibernateDAO;
 import assistec.model.service.MarcaService;
 import assistec.model.service.ModeloService;
 import assistec.util.UtilAssistec;
